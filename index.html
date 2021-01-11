@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html
+    style="background-color: rgb(255, 202, 55); position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);">
+
+<head>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://static.thenounproject.com/png/78104-200.png" />
+    <title>cookie clicker</title>
+    <meta charset="utf-8">
+</head>
+
+<body style="background-color:white;font-size: 20px;text-align: center;user-select: none;
+    width: 400px;margin: 1% auto;padding: 0 20px 20px 20px;border: 5px solid black;">
+
+
+    <h1>Cookie Clicker</h1>
+
+    <img id="mainImg" style="display: block;margin: 0 auto;width:300px;height:300px;"
+        src="https://media.istockphoto.com/vectors/cartoon-cute-cookie-icon-isolated-on-white-background-vector-id1142855490?k=6&m=1142855490&s=170667a&w=0&h=wkkwL7LH56KneFN0frVZA0ZXKTQQK0CqLjOXQbbDiKM="
+        alt="cookie">
+
+    <h3>Score</h3>
+    <p id="score">0</p>
+
+    <h5>Step</h5>
+    <p id="step">1</p>
+    <p id="increaseStep" style="font-size: 15px">Increase step by 1</p>
+    <p id="decreaseStep" style="font-size: 15px">Decrease step by 1</p>
+
+
+    <script>
+        let score = 0,
+            step = 1,
+            numOfClicks = 0
+
+        d3.select('#mainImg').on("click", function () {
+            score += step
+            numOfClicks += 1
+            console.log("score =  " + score + "    total clicks =  " + numOfClicks);
+            d3.select('#score').text(score)
+        })
+
+        function updateStepBy(value) {
+            step += value
+            d3.select('#step').text(step)
+            console.log("step = " + step);
+        }
+
+        d3.select('#decreaseStep').on("click", () => (updateStepBy(-1)))
+        d3.select('#increaseStep').on("click", () => (updateStepBy(1)))
+
+    </script>
+</body>
+
+</html>
