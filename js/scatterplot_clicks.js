@@ -1,6 +1,6 @@
 let colnameScatterplot = "clicksSum"
 
-$(d3.csv("https://raw.githubusercontent.com/mstaczek/dataplaceholder/master/ClicksPerHourCombined.csv", d1 => {
+$(d3.csv("https://raw.githubusercontent.com/mstaczek/TWD-cookies-webpage/master/data/ClicksPerHourCombined.csv", d1 => {
   const clicksData = d1;
   $('#clicksH').on("click", e => {
     colnameScatterplot = "clicksH";

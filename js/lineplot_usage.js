@@ -1,4 +1,4 @@
-$(d3.csv("https://raw.githubusercontent.com/mstaczek/dataplaceholder/master/TimePerDayCombined.csv", d2 => {
+$(d3.csv("https://raw.githubusercontent.com/mstaczek/TWD-cookies-webpage/master/data/TimePerDayCombined.csv", d2 => {
     const pcusageData = d2;
     $('#clicksH').on("click", e => {
         updatePCUsagePlot("timeH", pcusageData);

@@ -4,7 +4,7 @@ var col32;
 var col42;
 var col52;
 
-$(d3.csv("https://raw.githubusercontent.com/mstaczek/dataplaceholder/master/all_programs.csv", d => {
+$(d3.csv("https://raw.githubusercontent.com/mstaczek/TWD-cookies-webpage/master/data/all_programs.csv", d => {
     const data = d;
     $('#clicksH').on("click", e => {
         updateVizplot("operaH", "DiscordH", "explorerH", "teamsH", "Acrord32H", data);

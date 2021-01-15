@@ -4,7 +4,7 @@ var col3;
 var col4;
 var col5;
 
-$(d3.csv("https://raw.githubusercontent.com/mstaczek/dataplaceholder/master/Przedmioty-Combined.csv", d => {
+$(d3.csv("https://raw.githubusercontent.com/mstaczek/TWD-cookies-webpage/master/data/Przedmioty-Combined.csv", d => {
     const data = d;
     $('#animateSubjectsPlot').on("click", e => {
         let oldUpperBound = upperBound
