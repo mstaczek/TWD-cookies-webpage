@@ -1,55 +1,294 @@
 <!DOCTYPE html>
-<html
-    style="background-color: rgb(255, 202, 55); position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);">
+<html>
 
 <head>
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <link rel="shortcut icon" type="image/jpg" href="https://static.thenounproject.com/png/78104-200.png" />
-    <title>cookie clicker</title>
-    <meta charset="utf-8">
+  <title>Cookies Stats</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel='icon' href='https://i.ibb.co/G7Md7yt/minecraft-Cookie-Favicon.png'>
+  <script src="https://kit.fontawesome.com/9a3cd366d7.js" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/date_slider.js"></script>
 </head>
 
-<body style="background-color:white;font-size: 20px;text-align: center;user-select: none;
-    width: 400px;margin: 1% auto;padding: 0 20px 20px 20px;border: 5px solid black;">
+<body id="myPage">
+  <section id="navbarSection">
+    <div class="w3-top" style="z-index: 100;">
+      <div class="w3-bar w3-theme-d2 w3-left-align">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
+          href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+        <a href="#teamSection" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Introduction</a>
+        <a href="#filterSection" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Filters</a>
+        <a href="#plots12Section" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Plots 1 - 2</a>
+        <a href="#plots34Section" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Plots 3 - 4</a>
 
+        <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a> -->
+      </div>
 
-    <h1>Cookie Clicker</h1>
+      <!-- Navbar on small screens -->
+      <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+        <a href="#teamSection" class="w3-bar-item w3-button">Introduction</a>
+        <a href="#filterSection" class="w3-bar-item w3-button">Filters</a>
+        <a href="#plots12Section" class="w3-bar-item w3-button">Plots 1 - 2</a>
+        <a href="#plots34Section" class="w3-bar-item w3-button">Plots 3 - 4</a>
 
-    <img id="mainImg" style="display: block;margin: 0 auto;width:300px;height:300px;"
-        src="https://media.istockphoto.com/vectors/cartoon-cute-cookie-icon-isolated-on-white-background-vector-id1142855490?k=6&m=1142855490&s=170667a&w=0&h=wkkwL7LH56KneFN0frVZA0ZXKTQQK0CqLjOXQbbDiKM="
-        alt="cookie">
+        <!-- <a href="#" class="w3-bar-item w3-button">Go to top</a> -->
+      </div>
+    </div>
+  </section>
 
-    <h3>Score</h3>
-    <p id="score">0</p>
+  <section id="titleSection">
+    <div class="w3-display-container">
+      <div
+        style="background-attachment: scroll;min-height: 400px;background-image: url(images/tlo.jpg);background-position:center;background-repeat: no-repeat;background-size: cover;opacity:0.9">
+      </div>
+      <div class="w3-display-middle w3-center">
+        <span class="w3-xxlarge w3-text-black w3-wide">Cookies during Christmas break</span>
+      </div>
+      <div class="w3-container w3-display-bottomleft w3-margin-bottom">
+        <button onclick="document.getElementById('id01').style.display='block'"
+          class="w3-button w3-xlarge w3-theme">About project</button>
+      </div>
+    </div>
+  </section>
 
-    <h5>Step</h5>
-    <p id="step">1</p>
-    <p id="increaseStep" style="font-size: 15px">Increase step by 1</p>
-    <p id="decreaseStep" style="font-size: 15px">Decrease step by 1</p>
+  <section id="aboutusSection">
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-top">
+        <header class="w3-container  w3-display-container" style="background-color: #29558c;">
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button  w3-display-topright"
+            style="background-color: #29558c;">
+            <i class="fa fa-remove"></i>
+          </span>
+          <h4 style="color:white">Hi <i class="fa fa-smile-o"></i></h4>
+        </header>
+        <div class="w3-container">
+          <p> We are three WUT students, who created this webpage for Data Visualisation Techniques. </p>
+          <img style="display: block;margin: 0 auto; margin-bottom: 40px;width:150px;height:150px;"
+            src="images\mini_logo.png" alt="boat" style="width:10%;min-height:40px;max-height:30px; ">
+        </div>
+        <footer class="w3-container " style="background-color: #29558c;">
+          <p style="color:white">Hope you enjoy it!</p>
+        </footer>
+      </div>
+    </div>
+  </section>
 
+  <section id="teamSection">
+    <div class="w3-container w3-padding-64 w3-center">
+      <h2>OUR COOKIES</h2>
+      <p>Meet the team</p>
 
-    <script>
-        let score = 0,
-            step = 1,
-            numOfClicks = 0
+      <div class="w3-row"><br>
 
-        d3.select('#mainImg').on("click", function () {
-            score += step
-            numOfClicks += 1
-            console.log("score =  " + score + "    total clicks =  " + numOfClicks);
-            d3.select('#score').text(score)
-        })
+        <div class="w3-quarter">
+          <img style="display: block;margin: 0 auto;width:140px;height:210px;" src="images\pierniczek1.png"
+            alt="Western Cookie">
+          <h3>Western Cookie</h3>
+          <p style='margin-left: 13px;margin-right: 13px;'>
+            His PC was running usually from 8AM till 12 PM. <br> Sometimes even to 2AM.
+            On average, <br>he changed windows every 50s. <br>
+            During the Christmas break, he spent a lot of <br> time studying RP (even on Christmas days). <br>
+            Programs which he used the most were <br> web browser and Discord.
+          </p>
+        </div>
 
-        function updateStepBy(value) {
-            step += value
-            d3.select('#step').text(step)
-            console.log("step = " + step);
-        }
+        <div class="w3-quarter">
+          <img style="display: block;margin: 0 auto;width:140px;height:210px;" src="images\pierniczek2.png"
+            alt="Santa Cookie">
+          <h3>Santa Cookie</h3>
+          <p style='margin-left: 13px;margin-right: 13px;'>
+            His PC was running usually from 8AM till 10PM. <br>
+            The most time on PC during the day he spent <br> between 12AM till 5PM.
+            On average, he changed windows <br>every 70s.
+            During the Christmas break, he spent most <br> of the time studying ISI and searching web.
+          </p>
+        </div>
 
-        d3.select('#decreaseStep').on("click", () => (updateStepBy(-1)))
-        d3.select('#increaseStep').on("click", () => (updateStepBy(1)))
+        <div class="w3-quarter">
+          <img style="display: block;margin: 0 auto;width:140px;height:210px;" src="images\pierniczek3.png"
+            alt="Sorcerer Cookie">
+          <h3>Sorcerer Cookie</h3>
+          <p style='margin-left: 13px;margin-right: 13px;'>
+            His PC was running usually from 7AM till 10PM. <br>
+            On average, he changed windows every 85s. <br>
+            During the Christmas break, he spent more than 13h<br> studying TWD, but forgot about Java.<br>
+            He nearly did not open Teams.
+          </p>
+        </div>
 
-    </script>
+        <div class="w3-quarter">
+          <img style="display: block;margin: 0 auto;width:140px;height:210px;" src="images\wszystkie_pierniczki.png"
+            alt="All Cookies">
+          <h3>All Cookies</h3>
+          <p style='margin-left: 13px;margin-right: 13px;'>
+            All Cookies spent merry Christmas with their <br> cookie-families.
+            Most of them opened nothing <br>connected to studies during Christmas days.
+            On average, during whole break, mean time between window <br> changes was 75s
+            and the most used program <br>was web browser.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="plots12Section">
+    <div class="w3-cell-row  w3-theme-l1" style="padding-top: 16px;">
+      <div class="w3-container w3-cell"
+        style="width:50%;background-color: #ffffff;border: 15px dashed  #333333;background-clip: padding-box;">
+
+        <div class="w3-white w3-center" style="margin-bottom: -10px;">
+          <h3 style=" margin-bottom:-10px;">
+            Average window changes per hour
+          </h3>
+        </div>
+        <div class="w3-container w3-white">
+          <div id='scatterplot1'></div>
+        </div>
+      </div>
+      <div class="w3-container w3-cell"
+        style="width:50%;background-color: #ffffff;border: 15px dashed  #333333;background-clip: padding-box;">
+
+        <div class="w3-white w3-center" style="margin-bottom: -10px;">
+          <h3 style=" margin-bottom:-10px;">
+            Average time in front of a PC
+          </h3>
+        </div>
+        <div class="w3-container w3-white">
+          <div id='lineplot1'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="filterSection">
+    <div class="w3-cell-row w3-theme-l1" style="padding-top: 0px;">
+
+      <div class="w3-row-padding w3-center w3-white" style="padding-bottom: 16px;">
+        <h3 class="w3-section w3-center">Choose your cookie and date range!</h3>
+        <div class="w3-quarter">
+          <div class="w3-card-4 w3-hover-shadow" id="clicksH">
+            <div class="w3-button">
+              <div class="w3-white w3-ripple">
+                <img style="display: block;margin: 0 auto;width:100px;height:150px;" alt="Western Cookie" class=""
+                  src="images\pierniczek1.png">
+                <div class="w3-container w3-center">
+                  <p>Western Cookie</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-card-4 w3-hover-shadow" id="clicksA">
+            <div class="w3-button">
+              <div class="w3-white w3-ripple">
+                <img style="display: block;margin: 0 auto;width:100px;height:150px;" alt="Santa Cookie" class=""
+                  src="images\pierniczek2.png">
+                <div class="w3-container w3-center">
+                  <p>Santa Cookie</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-card-4 w3-hover-shadow" id="clicksM">
+            <div class="w3-button">
+              <div class="w3-white w3-ripple">
+                <img style="display: block;margin: 0 auto;width:110px;height:150px;" alt="Sorcerer Cookie" class=""
+                  src="images\pierniczek3.png">
+                <div class="w3-container w3-center">
+                  <p>Sorcerer Cookie</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-card-4 w3-hover-shadow" id="clicksSum">
+            <div class="w3-button">
+              <div class="w3-white w3-ripple">
+                <img style="display: block;margin: 0 auto;width:100px;height:150px;" alt="All cookies" class=""
+                  src="images\wszystkie_pierniczki.png">
+                <div class="w3-container w3-center">
+                  <p>All Cookies</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- slider -->
+    <div class="w3-section w3-center">
+      <!-- <h3>Choose date range:</h3> -->
+      <!-- <p>Days range:</p> -->
+      <p id="dateRange"></p>
+      <div class="w3-content" style="width:67%;">
+        <div id="slider-range" class="w3-padding-bottom"></div>
+      </div>
+      <p class="w3-text-blue-grey">Reminder: Christmas break was from 24th December 2020 to 6th January 2021</p>
+    </div>
+  </section>
+
+  <section id="plots34Section">
+    <div class="w3-cell-row w3-theme-l1" style="padding-top: 8px;padding-bottom: 32px;">
+      <div class="w3-container w3-cell"
+        style="width:50%;background-color: #ffffff;border: 15px dashed  #333333;background-clip: padding-box;">
+        <div class="w3-white w3-center" style="margin-bottom: -10px;">
+          <h3 style="margin-bottom:-10px;">
+            Time spent on studies
+          </h3>
+        </div>
+        <div class="w3-container w3-white">
+          <div id="barplot1"></div>
+          <button id="animateSubjectsPlot" class="w3-button w3-light-blue w3-padding-small">Animate subjects for each
+            day</button>
+          <p id="animationdates"></p>
+        </div>
+      </div>
+      <div class="w3-container w3-cell"
+        style="width:50%;background-color: #ffffff;border: 15px dashed  #333333;background-clip: padding-box;">
+
+        <div class="w3-white w3-center" style="margin-bottom: -10px;">
+          <h3 style=" margin-bottom:-10px;">
+            Most used programs
+          </h3>
+        </div>
+        <div class="w3-container w3-white">
+          <div id="barplot2"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="w3-container w3-padding-16 w3-theme-d1 w3-center">
+    <h4>Thanks for visiting our webpage!</h4>
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <div style="font-size: small;">
+        <p>Data was gathered with <a href="https://activitywatch.net/">Activity Watch</a> 
+          and presented with <a href="https://d3js.org/">D3.js</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src='js/setup.js'></script>
+  <script src="js/barplot_programs.js"></script>
+  <script src='js/scatterplot_clicks.js'></script>
+  <script src="js/lineplot_usage.js"></script>
+  <script src="js/barplot_subjects.js"></script>
 </body>
 
 </html>
